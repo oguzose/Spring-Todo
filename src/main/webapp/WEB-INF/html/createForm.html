@@ -1,4 +1,32 @@
-<form action="#" th:action="@{/todo/create}" th:object="${todo}" method="post">
-    <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+<!-- Latest compiled and minified CSS -->
+
+<div th:fragment="content">
+	
+	<div class="col-md-4">
+	<div class="form-group">
+
+		<form action="#" th:action="@{/todo/create}" th:object="${todo}"
+			method="post">
+			
+			<label for="name">Name:</label>
+			<input type="text" class="form-control" th:field="*{name}" />
+			
+			<label for="desc">Desc</label>
+				<textarea rows="3" class="form-control" cols="" th:field="*{desc}" ></textarea>
+			
+			
+			<label for="date">Date:</label>
+			<input type="date" class="form-control" th:field="*{dueDate}" />
+			
+			
+			<label for="done">Done:</label>
+			<input type="checkBox" class="checkbox" " th:field="*{done}" />
+						
+			<input type="submit" value="Submit" class="btn btn-success" /> 
+			<input type="reset" class="btn btn-warning value="Reset" />
+
+		</form>
+	</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+<div th:fragment="content">
+<link  rel="stylesheet" href="bootstrap/css/bootstrap.min.css"></link> 
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<h1>EDIT</h1>
+<h4 th:text="${message}"></h4>
+
+
+<form action="#" th:action="@{/todo/updateForm}" th:object="${todo}" method="post">
+    
+    <input th:hidden="${todo.id}" type="text" th:field="${todo.id}"/>
+    
+    <table class="table table-bordered">
+    	<tr>
+    		<td>NAME :</td>
+    		<td> <input type="text"  th:field="${todo.name}"  th:value="${todo.name}" /></td>
+    	</tr>
+    
+    	<tr>
+    		<td>DESC :</td>
+    		<td> <textarea rows="3" cols=""  th:field="${todo.desc}" th:value="${todo.desc}"></textarea></td>
+    	</tr>
+    
+    	<tr>
+    		<td>DATE :</td>
+    		<td> <input type="date"  th:field="${todo.dueDate}" th:value="${todo.dueDate}" /></td>
+    	</tr>
+    
+    	<tr>
+    		<td>DONE :</td>
+    		<td> <input type="checkBox"  th:value="checkDone" th:checked="${todo.done}" th:field="${todo.done}" /></td>
+    	</tr>
+    
+    
+    </table>
+    
+    <input type="submit" value="Update" />
+    
+   
+</form>
+</div>

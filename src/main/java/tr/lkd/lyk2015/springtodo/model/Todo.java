@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 public class Todo implements Serializable {
 
@@ -21,6 +24,8 @@ public class Todo implements Serializable {
 	
 	@Column(name = "description")
 	private String desc;
+	
+	@DateTimeFormat(iso = ISO.DATE)
 	private Calendar dueDate;
 	private boolean done;
 
@@ -62,6 +67,14 @@ public class Todo implements Serializable {
 
 	public void setDone(boolean done) {
 		this.done = done;
+	}
+	
+	
+	public String readableDate() {
+
+		String d = "";
+		d = dueDate.get(Calendar.YEAR) + "/" + (dueDate.get(Calendar.MONTH) + 1) + "/" + dueDate.get(Calendar.DAY_OF_MONTH);
+		return d;
 	}
 
 }

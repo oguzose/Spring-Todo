@@ -34,9 +34,9 @@ public class TodoDao {
 		return (Todo) session.get(Todo.class, id);
 	}
 
-	public Long update(final Todo todo) {
+	public Todo update(final Todo todo) {
 		final Session session = sessionFactory.getCurrentSession();
-		return (Long) session.merge(todo);
+		return (Todo) session.merge(todo);
 	}
 
 	@SuppressWarnings("unchecked")

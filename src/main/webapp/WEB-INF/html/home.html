@@ -1,5 +1,15 @@
-<h1>Todo Application</h1>
+<div th:fragment="content">
+<!-- buranın alt elamanları alıyor üst content divi alınmaz.  -->
+	<div class="page-header">
 
-<p th:text="${message}"></p>
+		<p th:text="${message}">Stickty</p>
 
-<p th:inline="text">This is the [[${message}]]</p>
+		<p class="lead" th:inline="text">This is the [[${message}]]</p>
+		buraya yazilar gelecek 
+		bir sürü yazı
+		
+		zaaa
+	</div>
+</div>
+
+

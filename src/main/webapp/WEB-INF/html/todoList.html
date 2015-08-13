@@ -1,5 +1,44 @@
+<div th:fragment="content">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"></link>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
 <h1>Spring</h1>
 
-<ul>
-	<li th:each="todo : ${todoList}"><p th:text="${todo.name}"></p></li>
-</ul>
+<form action="#" th:action="@{/todo}" th:object="${todo}" method="post">
+	<div class="form-group">
+		<ul>
+			<li th:each="todo : ${todoList}">
+
+				<div th:if="${todo.done}">
+
+					<strike>
+
+						<p
+							th:text="${todo.name} + '    ' + ${todo.desc} + '    ' + ${todo.readableDate()}"></p>
+						<a href="todo" th:href="@{/todo/updateForm(id=${todo.id})}">Edit</a>
+
+					</strike>
+
+				</div>
+
+				<div th:if="${todo.done == false}">
+					<p
+						th:text="${todo.name} + '    ' + ${todo.desc} + '    ' +
+						 ${todo.readableDate()}"></p>
+					Done :<input type="checkbox" name="active" th:value="${todo.id}" />
+					
+					<a href="todo" th:href="@{/todo/updateForm(id=${todo.id})}">Edit</a>
+
+				</div>
+
+			</li>
+		</ul>
+
+		<p>
+			<input type="submit" value="Submit" />
+		</p>
+	</div>
+</form>
+</div>
+
